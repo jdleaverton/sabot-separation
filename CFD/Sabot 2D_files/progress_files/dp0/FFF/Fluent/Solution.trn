@@ -1,0 +1,155 @@
+
+Build Time: May 29 2020 07:30:24 EDT 
+Executable Path: C:/PROGRA~1/ANSYSI~1/v202/fluent/ntbin/win64/fluent.exe
+
+-------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    Vendor                     
+-------------------------------------------------------------------------------
+n0*   DESKTOP-0OH1031  1/8  Windows-x64  19024  Intel(R) Core(TM) i7-8650U 
+host  DESKTOP-0OH1031       Windows-x64  9272   Intel(R) Core(TM) i7-8650U 
+
+MPI Option Selected: intel
+Selected system interconnect: default
+-------------------------------------------------------------------------------
+Reading "C:\Users\JD\OneDrive - Texas A&M University\URS\CFD\Sabot 2D_files\dp0\SYS\MECH\SYS.msh"...
+Buffering for file scan...
+
+   17150 nodes, binary.
+     700 nodes, binary.
+   34250 2D interior faces, zone  1, binary.
+     400 2D interior faces, zone  2, binary.
+     125 2D pressure-inlet faces, zone  6, binary.
+     300 2D pressure-far-field faces, zone  7, binary.
+     125 2D pressure-outlet faces, zone  8, binary.
+     150 2D wall faces, zone  9, binary.
+   17500 quadrilateral cells, zone  3, binary.
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+     zones,
+	no-slip
+	pressure_outlet
+	pressure_farfield
+	pressure_inlet
+	fluid-surface_body
+	surface_body
+	interior-surface_body
+     parallel,
+Done.
+
+Preparing mesh for display...
+Warning: Pressure far-field boundary condition can only be used with ideal gas law.
+  Please change either the boundary condition type or enable ideal gas law.
+  Solver cannot proceed until this is fixed.
+	Warning: Pressure far-field boundary condition can only be used with ideal gas law.
+  Please change either the boundary condition type or enable ideal gas law.
+  Solver cannot proceed until this is fixed.
+	Done.
+
+Writing Settings file "C:\Users\JD\OneDrive - Texas A&M University\URS\CFD\Sabot 2D_files\dp0\FFF\Fluent\SYS.set"...
+	writing rp variables ... Done.
+	writing domain variables ... Done.
+	writing fluid-surface_body (type fluid) (mixture) ... Done.
+	writing interior-surface_body (type interior) (mixture) ... Done.
+	writing surface_body (type interior) (mixture) ... Done.
+	writing pressure_inlet (type pressure-inlet) (mixture) ... Done.
+	writing pressure_farfield (type pressure-far-field) (mixture) ... Done.
+	writing pressure_outlet (type pressure-outlet) (mixture) ... Done.
+	writing no-slip (type wall) (mixture) ... Done.
+	writing zones map name-id ... Done.
+Warning: Pressure far-field boundary condition can only be used with ideal gas law.
+  Please change either the boundary condition type or enable ideal gas law.
+  Solver cannot proceed until this is fixed.
+	"Updating Setup cell..."
+"Updating Solution cell..."
+Initialization based on settings...
+
+Initialize using the hybrid initialization method.
+
+Checking case topology... 
+-This case has farfield bc 
+-Case will be initialized with constant pressure
+
+	iter		scalar-0
+
+	1		1.000000e+00
+	2		6.835806e-06
+	3		1.280765e-06
+	4		4.898699e-07
+	5		1.758751e-07
+	6		9.819755e-08
+	7		6.831044e-08
+	8		5.392318e-08
+	9		4.932754e-08
+	10		4.477143e-08
+
+Hybrid initialization is done.
+Writing data to C:\\Users\\JD\\OneDrive - Texas A&M University\\URS\\CFD\\Sabot 2D_files\\dp0\\FFF\\Fluent\\SYS.ip ...
+	x-coord
+	y-coord
+	pressure
+	x-velocity
+	y-velocity
+	k
+	omega
+	hyb_init-0
+	hyb_init-1
+Done.
+("Unable to update solution. Number of iterations should be greater than zero.")
+
+Error: Unable to update solution. Number of iterations should be greater than zero.
+Error Object: #f
+Writing "| gzip -2cf > SYS-Setup-Output.cas.gz"...
+Writing temporary file C:\\Users\\JD\\AppData\\Local\\Temp\\flntgz-92722 ...
+   17500 quadrilateral cells, zone  3, binary.
+   34250 2D interior faces, zone  1, binary.
+     400 2D interior faces, zone  2, binary.
+     125 2D pressure-inlet faces, zone  6, binary.
+     300 2D pressure-far-field faces, zone  7, binary.
+     125 2D pressure-outlet faces, zone  8, binary.
+     150 2D wall faces, zone  9, binary.
+   17850 nodes, binary.
+   17850 node flags, binary.
+Done.
+
+Writing "| gzip -2cf > SYS-1.cas.gz"...
+Writing temporary file C:\\Users\\JD\\AppData\\Local\\Temp\\flntgz-92723 ...
+   17500 quadrilateral cells, zone  3, binary.
+   34250 2D interior faces, zone  1, binary.
+     400 2D interior faces, zone  2, binary.
+     125 2D pressure-inlet faces, zone  6, binary.
+     300 2D pressure-far-field faces, zone  7, binary.
+     125 2D pressure-outlet faces, zone  8, binary.
+     150 2D wall faces, zone  9, binary.
+   17850 nodes, binary.
+   17850 node flags, binary.
+Done.
+
+Writing "| gzip -2cf > SYS-1-00000.dat.gz"...
+Writing temporary file C:\\Users\\JD\\AppData\\Local\\Temp\\flntgz-92724 ...
+Done.
+
+
+Performance Timer for 0 iterations on 1 compute node
+  Average wall-clock time per iteration:              0.000 sec
+  Global reductions per iteration:                        0 ops
+  Global reductions time per iteration:               0.000 sec (0.0%)
+  Message count per iteration:                            0 messages
+  Data transfer per iteration:                        0.000 MB
+  LE solves per iteration:                                0 solves
+  LE wall-clock time per iteration:                   0.000 sec (0.0%)
+  LE global solves per iteration:                         0 solves
+  LE global wall-clock time per iteration:            0.000 sec (0.0%)
+  LE global matrix maximum size:                         0
+  AMG cycles per iteration:                           0.000 cycles
+  Relaxation sweeps per iteration:                        0 sweeps
+  Relaxation exchanges per iteration:                     0 exchanges
+  LE early protections (stall) per iteration:           0.000 times
+  LE early protections (divergence) per iteration:      0.000 times
+  Total SVARS touched:                              361
+
+  Total wall-clock time:                              0.000 sec
+

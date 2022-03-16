@@ -1,0 +1,196 @@
+<FluentXMLReport>
+<version>
+Fluent
+Version: 2d, dp, dbns imp, DES, transient (2d, double precision, density-based implicit, Detached Eddy Simulation, transient)
+Release: 20.2.0
+Title: 
+</version>
+
+<Models>
+
+Models
+------
+
+   Model                        Settings                       
+   ---------------------------------------------------------
+   Space                        2D                             
+   Time                         Unsteady, 2nd-Order Implicit   
+   Viscous                      Detached Eddy Simulation       
+   Heat Transfer                Enabled                        
+   Solidification and Melting   Disabled                       
+   Radiation                    None                           
+   Species                      Disabled                       
+   Coupled Dispersed Phase      Disabled                       
+   NOx Pollutants               Disabled                       
+   SOx Pollutants               Disabled                       
+   Soot                         Disabled                       
+   Mercury Pollutants           Disabled                       
+   Structure                    Disabled                       
+   Acoustics                    Disabled                       
+   Eulerian Wall Film           Disabled                       
+   Potential/Li-ion Battery     Disabled                       
+   Multiphase                   Disabled                       
+
+</Models>
+
+<MaterialProperties>
+Material Properties
+-------------------
+
+   Material: nitrogen (fluid)
+
+      Property                        Units     Method       Value(s)                                                                                                                                                    
+      ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      Density                         kg/m3     ideal-gas    #f                                                                                                                                                          
+      Cp (Specific Heat)              j/kg-k    polynomial   (300-1000: 979.04298 0.4179639 -0.0011762792 1.6743943e-06 -7.2562971e-10) (1000-5000: 868.62291 0.44162954 -0.00016872295 2.9967875e-08 -2.0043858e-12)    
+      Thermal Conductivity            w/m-k     constant     0.0242                                                                                                                                                      
+      Viscosity                       kg/m-s    sutherland   (1.663e-05 273.11 106.67 )                                                                                                                                  
+      Molecular Weight                kg/kmol   constant     28.0134                                                                                                                                                     
+      Thermal Expansion Coefficient   1/k       constant     0                                                                                                                                                           
+      Speed of Sound                  m/s       none         #f                                                                                                                                                          
+
+   Material: aluminum (solid)
+
+      Property               Units    Method     Value(s)   
+      ---------------------------------------------------
+      Density                kg/m3    constant   2719       
+      Cp (Specific Heat)     j/kg-k   constant   871        
+      Thermal Conductivity   w/m-k    constant   202.4      
+
+</MaterialProperties>
+
+<CellZoneConditions>
+Cell Zone Conditions
+--------------------
+
+   Zones
+
+      name                 id   type    
+      -------------------------------
+      fluid-surface_body   3    fluid   
+
+   Setup Conditions
+
+      fluid-surface_body
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+         Mesh Motion?    no      
+
+</CellZoneConditions>
+
+<BoundaryConditions>
+Boundary Conditions
+-------------------
+
+   Zones
+
+      name                id   type                 
+      -------------------------------------------
+      pressure_outlet     8    pressure-outlet      
+      pressure_inlet      6    pressure-far-field   
+      pressure_farfield   7    pressure-far-field   
+      no-slip             9    wall                 
+
+   Setup Conditions
+
+      pressure_outlet
+
+         Condition   Value   
+         -----------------
+
+      pressure_inlet
+
+         Condition                 Value    
+         --------------------------------
+         Gauge Pressure (pascal)   26664    
+         Mach Number               8.5738   
+
+      pressure_farfield
+
+         Condition                 Value    
+         --------------------------------
+         Gauge Pressure (pascal)   26664    
+         Mach Number               8.5738   
+
+      no-slip
+
+         Condition                  Value             
+         ------------------------------------------
+         Thermal BC Type            Heat Flux         
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+</BoundaryConditions>
+
+<SolverSettings>
+Solver Settings
+---------------
+
+   Equations
+
+      Equation     Solved   
+      -------------------
+      Flow         yes      
+      Turbulence   yes      
+
+   Numerics
+
+      Numeric                         Enabled   
+      ---------------------------------------
+      Absolute Velocity Formulation   yes       
+
+   Unsteady Calculation Parameters
+
+                                              
+      -------------------------------------
+      Time Step (s)                   1e-06   
+      Max. Iterations Per Time Step   20      
+
+   Relaxation
+
+      Variable                    Relaxation Factor   
+      ---------------------------------------------
+      Turbulent Kinetic Energy    0.8                 
+      Specific Dissipation Rate   0.8                 
+      Turbulent Viscosity         1                   
+      Solid                       1                   
+
+   Linear Solver
+
+      Variable                    Solver Type   Termination Criterion   Residual Reduction Tolerance   
+      ----------------------------------------------------------------------------------------------
+      Flow                        F-Cycle       0.1                                                    
+      Turbulent Kinetic Energy    Flexible      0.1                     0.7                            
+      Specific Dissipation Rate   Flexible      0.1                     0.7                            
+
+   Discretization Scheme
+
+      Variable                    Scheme                
+      -----------------------------------------------
+      Flow                        Second Order Upwind   
+      Turbulent Kinetic Energy    Second Order Upwind   
+      Specific Dissipation Rate   Second Order Upwind   
+
+   Time Marching
+
+      Parameter            Value      
+      -----------------------------
+      Solver               Implicit   
+      Physical Time Step   1e-06      
+      Courant Number       1          
+
+   Solution Limits
+
+      Quantity                        Limit    
+      --------------------------------------
+      Minimum Absolute Pressure       1        
+      Maximum Absolute Pressure       5e+10    
+      Minimum Temperature             1        
+      Maximum Temperature             5000     
+      Maximum Turb. Viscosity Ratio   100000   
+
+</SolverSettings>
+
+</FluentXMLReport>

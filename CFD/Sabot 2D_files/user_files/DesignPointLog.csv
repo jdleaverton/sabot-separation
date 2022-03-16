@@ -1,0 +1,12 @@
+﻿# 
+# This file contains the parameter values of the Design Points successfully updated by ANSYS Workbench.
+# Project name: Sabot 2D
+# Creation date: 03/22/2021 09:07:09
+# 
+# 03/22/2021 09:07:09
+# The parameters defined in the project are:
+# ,P1 - CupAngle [degree]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1
+DP 0,230
